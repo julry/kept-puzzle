@@ -72,7 +72,7 @@ export const Game1 = () => {
         let newPuz = {...puzzle, top: dropY, left: dropX};
 
         if (puzzle.id === 6 || puzzle.id === 7) {
-            if (puzzles.current.shownPuzzles.find(({left}) => left === dropX)) return;
+            if (puzzles.current.shownPuzzles.find(({left, top}) => left === dropX && top === dropY)) return;
             if (dropX === 6) newPuz = {...newPuz, xPosition: '100%'};
             else newPuz = {...newPuz, xPosition: '0'};
         }

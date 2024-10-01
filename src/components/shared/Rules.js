@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-// import { useRef } from 'react';
 import { useSizeRatio } from '../../contexts/SizeRatioContext';
-import {boardPic} from '../screens/Game1/assets';
+import {boardPic, head_left} from '../screens/Game1/assets';
 // import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 import hand from '../../assets/images/hand.svg';
 import { Block } from './Block';
@@ -37,8 +36,6 @@ const RulesWrapper = styled.div`
 
 const Picture = styled.img`
     z-index: 2;
-    /* width: ${({$ratio}) => $ratio * 180}px;
-    height: ${({$ratio}) => $ratio * 288}px; 0.66 */ 
     width: ${({$ratio}) => $ratio * 120}px;
     height: ${({$ratio}) => $ratio * 192}px;
     object-fit: contain;
@@ -65,6 +62,11 @@ const PuzzleWrapper = styled.div`
     z-index: 11;
 `;
 
+const PuzzAnimated = styled(motion.div)`
+    position: absolute;
+    background: url(${head_left}) no-repeat 100% 0 / contain;
+    z-index: 11;
+`;
 
 export const Rules = ({onClose, isFirstRules}) => {
     const ratio = useSizeRatio();
@@ -83,7 +85,7 @@ export const Rules = ({onClose, isFirstRules}) => {
                 </p>
                 <RulesWrapper $ratio={ratio}>
                     <Picture $ratio={ratio} src={boardPic} alt=""/>
-                    {initialPuzzles.map((puz) => (
+                    {initialPuzzles.map((puz) => puz.id === 1 ? null : (
                         <PuzzleWrapper 
                             key={puz.id}
                             $left={puz.startPuz.left ?  puz.startPuz.left * ratio + 'px' : undefined} 
@@ -98,10 +100,36 @@ export const Rules = ({onClose, isFirstRules}) => {
                     ))}
                     <Hand 
                         $ratio={ratio}
-                        initial={{bottom: 15 * ratio, left: 95 * ratio}}
                         src={hand} 
                         alt=""
+                        animate={{
+                            left: [95 * ratio, 45 * ratio, 120 * ratio], 
+                            bottom: [15 * ratio, 61 * ratio, 215 * ratio]
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 0.8,
+                            repeatType: 'reverse',
+                            repeatDelay: 2
+                        }}
                     /> 
+                    <PuzzAnimated 
+                        $ratio={ratio}
+                        initial={{}}
+                        animate={{
+                            left: [39 * ratio, 39 * ratio, 101 * ratio], 
+                            bottom: [80 * ratio, 80 * ratio, 220 * ratio], 
+                            rotate: [-15, 0, 0, 0],
+                            width: [39 * 0.66 * ratio, 39 * 0.66 * ratio, 54 * 0.66 * ratio],
+                            height: [80 * 0.66 * ratio, 80 * 0.66 * ratio, 90 * 0.66 * ratio],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 0.8,
+                            repeatType: 'reverse',
+                            repeatDelay: 2
+                        }}
+                    />
                 </RulesWrapper>
                 <Button onClick={handleClose}>{isFirstRules ? 'начинаем' : 'понятно'}</Button>
             </Content>
