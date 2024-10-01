@@ -15,16 +15,17 @@ const Wrapper = styled.div`
     text-align: center;
     white-space: pre-line;
     font-weight: 400;
+    border-top: 3px solid #E4E4EF;
 `;
 
 const Header = styled.div`
     position: absolute;
-    top: ${({$ratio, $isRules}) => $ratio * ($isRules ? -37 : -27)}px;
+    top: ${({$ratio, $isRules}) => $ratio * ($isRules ? -38 : -30)}px;
     left: 0;
     z-index: 2;
-    width: 100%;
-    height: ${({$ratio, $isRules}) => $ratio * ($isRules ? 38 : 28)}px;
-    background: url(${({$isRules}) => $isRules ? headerRules : header}) no-repeat 0 0 / cover;
+    width: ${({$ratio}) => $ratio * 315}px;
+    height: ${({$ratio, $isRules}) => $ratio * ($isRules ? 40 : 30)}px;
+    background: url(${({$isRules}) => $isRules ? headerRules : header}) no-repeat 0 0 / contain;
 `;
 
 const Back = styled.div`

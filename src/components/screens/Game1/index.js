@@ -123,7 +123,7 @@ export const Game1 = () => {
     return (
         <GameWrapper
             level={1} 
-            // isFirstRules
+            isFirstRules
             onDrop={handleReturn}
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}
