@@ -154,6 +154,7 @@ export const Game2 = () => {
             onDrop={handleReturn}
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}
+            fieldSize={[324, 252]}
         >
             <Picture src={boardPic} alt={""} $ratio={ratio}/>
             <ShiningStyled $ready={isWin} />

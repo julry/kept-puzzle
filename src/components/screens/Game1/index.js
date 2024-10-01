@@ -65,6 +65,7 @@ export const Game1 = () => {
         if (puzzle.correctX?.includes(dropX + 1)) dropX = dropX + 1;
         if (puzzle.correctY?.includes(dropY + 1)) dropY = dropY + 1;
         if (puzzle.correctY?.includes(dropY - 1)) dropY = dropY - 1;
+
         if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
 
         const shownIndex = puzzles.current.shownPuzzles.findIndex(({id}) => id === puzzle.id);
@@ -91,7 +92,7 @@ export const Game1 = () => {
        if (puzzles.current.shownPuzzles.length === initialPuzzles.length) {
             const correctLength = puzzles.current.shownPuzzles.filter(({top, left, correctX, correctY }) => 
                 ((!correctX || correctX.includes(left)) && (!correctY || correctY.includes(top)))
-            ).length
+            ).length;
             if (correctLength === puzzles.current.shownPuzzles.length) {
                 setIsWin(true);
                 setTimeout(() => next(), 600);
@@ -122,6 +123,7 @@ export const Game1 = () => {
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}
             isWin={isWin}
+            fieldSize={[216, 324]}
         >
             <ShiningStyled $ready={isWin} />
             <Picture src={boardPic} alt={""} $ratio={ratio}/>

@@ -4,10 +4,10 @@ import { DragPreviewImage, useDrag } from "react-dnd"
 import { usePreview } from "react-dnd-multi-backend";
 import styled from 'styled-components';
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
-import { puzzleRealSize, puzzleSize} from "../../constants/sizes";
+import { puzzleSize} from "../../constants/sizes";
 
 const PuzzleWrapper = styled.div`
-    position: relative;
+    position: absolute;
     width: ${({$ratio, width}) => $ratio * width}px;
     height: ${({$ratio, height}) => $ratio * height}px;
     background: url(${({src}) => src}) no-repeat ${({$xPosition}) => $xPosition ?? 0} ${({$yPosition}) => $yPosition ?? 0} / contain;
@@ -46,7 +46,7 @@ export const Puzzle = ({ className, puzzle, isStartPuzzle }) => {
 
     const PuzzlePreview = () => {
         const {display, style} = usePreview();
-
+         
         if (!display) {
             return (
                 <DragPreviewImage connect={preview} src={puzzle.src} />
@@ -58,8 +58,8 @@ export const Puzzle = ({ className, puzzle, isStartPuzzle }) => {
                 ref={preview}
                 style={style} 
                 $ratio={ratio}  
-                width={puzzRealWidth ?? puzzle.sizeX * puzzleRealSize} 
-                height={puzzRealHeight ?? puzzle.sizeY * puzzleRealSize} 
+                width={puzzRealWidth} 
+                height={puzzRealHeight} 
                 src={puzzle.src}
             />
         );
@@ -80,7 +80,6 @@ export const Puzzle = ({ className, puzzle, isStartPuzzle }) => {
                 $yPosition={yPosition}
                 src={img} 
             />
-        </>
-        
+        </> 
     )
 }

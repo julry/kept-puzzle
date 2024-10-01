@@ -6,17 +6,15 @@ import { useSizeRatio } from "../../contexts/SizeRatioContext";
 import { Puzzle } from "./Puzzle";
 
 const DropDump = styled.div`
-    position: absolute;
+    position: relative;
     z-index: 10;
-    top: ${({$move, $ratio}) => $move ? 'calc(50% - ' + $ratio * $move + 'px)' : '50%'};
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: ${({$move, $ratio}) => $move ? $ratio * $move + 'px' : '0'};
     width: ${({$ratio, width}) => $ratio * width}px;
     height: ${({$ratio, height}) => $ratio * height}px;
 `;
 
 const PuzzleStyled = styled(Puzzle)`
-    position: absolute !important;
+    position: absolute;
     top: ${({top}) => top};
     left: ${({left}) => left};
     ${({width}) => width ? 'width: ' + width : ''};

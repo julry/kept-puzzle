@@ -156,6 +156,8 @@ export const Game3 = () => {
             onDrop={handleReturn}
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}
+            fieldSize={[216, 324]}
+
         >
             <ShiningStyled $ready={isWin} />
             <Picture src={boardPic} alt={""} $ratio={ratio}/>

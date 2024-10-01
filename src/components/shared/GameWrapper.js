@@ -14,6 +14,7 @@ import { StartPuzzle } from "./StartPuzzle";
 
 const Wrapper = styled(FlexWrapper)`
     padding: ${({$ratio}) => $ratio * 30}px 0;
+    justify-content: center;
 `;
 
 const ReloadBtn = styled(RoundButton)`
@@ -55,7 +56,7 @@ const TransitionWrapper = styled.div`
     }
 `
 
-export const GameWrapper = ({level, children, emptyPuzzles = [], isFirstRules, isWin, onDrop, onRestart}) => {
+export const GameWrapper = ({level, children, emptyPuzzles = [], fieldSize, isFirstRules, isWin, onDrop, onRestart}) => {
     const [isFirstShown, setIsFirstShown] = useState(isFirstRules);
     const [isRules, setIsRules] = useState(isFirstRules);
     const ratio = useSizeRatio();
@@ -90,15 +91,16 @@ export const GameWrapper = ({level, children, emptyPuzzles = [], isFirstRules, i
                         <DndProvider options={HTML5toTouch}>
                             <Wrapper $ratio={ratio}>
                                 <Header level={level} onClickRules={() => setIsRules(true)}/>
-                                <GameContent onDrop={onDrop} isWin={isWin}>
-                                {emptyPuzzles.map((puz) => (
-                                    <StartPuzzle 
-                                        key={puz.id}
-                                        puz={puz}
-                                    />
-                                ))}
+                                <GameContent onDrop={onDrop} isWin={isWin} fieldSize={fieldSize}>
+                                    {children}
+
+                                    {emptyPuzzles.map((puz) => (
+                                        <StartPuzzle 
+                                            key={puz.id}
+                                            puz={puz}
+                                        />
+                                    ))}
                                 </GameContent>
-                                {children}
                                 <ReloadBtn $ratio={ratio} onClick={onRestart}>
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.44444 16.3333C3.00692 17.4691 3.78363 18.4856 4.72359 19.3333C6.55851 20.9882 9.01557 22 11.7157 22C17.3955 22 22 17.5229 22 12C22 6.47718 17.3955 2.00004 11.7157 2.00004C9.98228 2.00004 8.34906 2.41701 6.91631 3.15343C5.3205 3.97365 3.97338 5.19017 3.01353 6.6682M3.01353 6.6682L2 2M3.01353 6.6682L6.91631 7.84336" stroke="white" strokeWidth="3" strokeLinecap="round"/>
