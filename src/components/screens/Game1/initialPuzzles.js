@@ -68,8 +68,9 @@ export const initialPuzzles = [
         },
         puzzWidth: 111,
         puzzHeight: 65,
-        puzzRealWidth: 123,
+        puzzRealWidth: 126,
         puzzRealHeight: 72,
+        yPosition: '100%'
     },
     {
         id: 5,
@@ -87,6 +88,8 @@ export const initialPuzzles = [
         puzzHeight: 64,
         puzzRealWidth: 90,
         puzzRealHeight: 72,
+        yPosition: '100%',
+        xPosition: '100%',
     },
     {
         id: 6,

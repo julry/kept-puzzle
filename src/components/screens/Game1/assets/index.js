@@ -1,4 +1,4 @@
-import boardPic from './boardPic.svg';
+import boardPic from './boardPic.png';
 import arm_left from './arm_left.svg';
 import arm_right from './arm_right.svg';
 import body_up from './body_up.svg';

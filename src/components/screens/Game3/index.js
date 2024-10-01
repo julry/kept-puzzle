@@ -64,12 +64,16 @@ export const Game3 = () => {
         if (x + puzzle.sizeX + 1 > COLUMNS) dropX = COLUMNS - puzzle.sizeX - 1;
         if (y + puzzle.sizeY + 1 > ROWS) dropY = ROWS - puzzle.sizeY - 1;
         
-        if (puzzle.correctX?.includes(dropX - 1)) dropX = dropX -1;
+        if (puzzle.correctX?.includes(dropX - 1)) dropX = dropX - 1;
         if (puzzle.correctX?.includes(dropX + 1)) dropX = dropX + 1;
         if (puzzle.correctY?.includes(dropY + 1)) dropY = dropY + 1;
         if (puzzle.correctY?.includes(dropY - 1)) dropY = dropY - 1;
 
         if (puzzle.isOnlyPosition) {
+            if (puzzle.correctX?.includes(dropX - 2)) dropX = dropX - 2;
+            if (puzzle.correctX?.includes(dropX + 2)) dropX = dropX + 2;
+            if (puzzle.correctY?.includes(dropY + 2)) dropY = dropY + 2;
+            if (puzzle.correctY?.includes(dropY - 2)) dropY = dropY - 2;
             if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
         }
         
@@ -80,26 +84,25 @@ export const Game3 = () => {
         }
 
         if (!isEmpty) {
-            if (isSligtlyRight || isSligtlyUp) {
-                let isSomeEmpty = false;
-                if (isMoreUp && isSligtlyUp && dropY + 1 <= ROWS - puzzle.sizeY) {
-                    const {isEmpty: isEmptyDown, placed: placedDown} = 
-                        findPlacedCells(dropX, dropY + 1, puzzle, puzzles.current.placedCells);
+            let isSomeEmpty = false;
+            if (dropY + 1 <= ROWS - puzzle.sizeY) {
+                const {isEmpty: isEmptyDown, placed: placedDown} = 
+                    findPlacedCells(dropX, dropY + 1, puzzle, puzzles.current.placedCells);
 
-                    isSomeEmpty = isEmptyDown;
-                    placedPuzzles = [...placedDown];
-                    if (isSomeEmpty) dropY = dropY + 1;
-                } 
+                isSomeEmpty = isEmptyDown;
+                placedPuzzles = [...placedDown];
+                if (isSomeEmpty) dropY = dropY + 1;
+            } 
 
-                if ((!isSomeEmpty || !isSligtlyUp) && dropX + 1 <= COLUMNS - puzzle.sizeX) {
-                    const {isEmpty: isEmptyRight, placed: placedRight} = 
-                        findPlacedCells(dropX + 1, dropY, puzzle, puzzles.current.placedCells);
-                    isSomeEmpty = isEmptyRight;
-                    placedPuzzles = [...placedRight];
-                    if (isSomeEmpty) dropX = dropX + 1;
-                }
-                if (!isSomeEmpty) return;
-            } else return;
+            if ((!isSomeEmpty) && dropX + 1 <= COLUMNS - puzzle.sizeX) {
+                const {isEmpty: isEmptyRight, placed: placedRight} = 
+                    findPlacedCells(dropX + 1, dropY, puzzle, puzzles.current.placedCells);
+                isSomeEmpty = isEmptyRight;
+                placedPuzzles = [...placedRight];
+                if (isSomeEmpty) dropX = dropX + 1;
+            }
+
+            if (!isSomeEmpty) return;
         } 
 
         const shownIndex = puzzles.current.shownPuzzles.findIndex(({id}) => id === puzzle.id);
@@ -159,7 +162,6 @@ export const Game3 = () => {
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}
             fieldSize={[216, 324]}
-
         >
             <ShiningStyled $ready={isWin} />
             <Picture src={boardPic} alt={""} $ratio={ratio}/>
@@ -167,7 +169,9 @@ export const Game3 = () => {
                 cellSize={18}
                 width={216} 
                 height={324} 
-                moveDump={1}
+                rows={ROWS}
+                columns={COLUMNS}
+                moveDump={-2}
                 onDrop={handleDrop}
                 shownPuzzles={puzzles.current.shownPuzzles}
             />

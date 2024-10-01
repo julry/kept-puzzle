@@ -10,10 +10,10 @@ export const Wrapper = styled(Puzzle)`
     top: ${({$top}) => $top ?? 'auto'};
     bottom: ${({$bottom}) => $bottom ?? 'auto'};
     transform: rotate(${({$rotation}) => $rotation}deg);
+    transition: width 0.3s, height 0.3s, transform 0.3s;
 `;
 
-
-export const StartPuzzle = ({puz}) => {
+export const StartPuzzle = ({puz, onClick, clicked}) => {
     const ratio = useSizeRatio();
 
     const { startPuz } = puz;
@@ -26,9 +26,11 @@ export const StartPuzzle = ({puz}) => {
             $top={top ? top * ratio + 'px': undefined}
             $right={right ? right * ratio + 'px' : undefined} 
             $bottom={bottom ? bottom * ratio + 'px' : undefined} 
-            $rotation={rotation} 
+            $rotation={clicked === puz.id ? 0 : rotation} 
             puzzle={puz} 
             isStartPuzzle
+            onClick={onClick}
+            clicked={clicked === puz.id}
         />
     )
 }

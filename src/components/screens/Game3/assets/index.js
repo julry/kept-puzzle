@@ -1,4 +1,4 @@
-import boardPic from "./rocket.svg";
+import boardPic from "./boardPic.png";
 import vector  from "./Vector.svg";
 import vector1  from "./Vector-1.svg";
 import vector2  from "./Vector-2.svg";

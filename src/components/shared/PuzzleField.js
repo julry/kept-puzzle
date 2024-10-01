@@ -21,7 +21,7 @@ const PuzzleStyled = styled(Puzzle)`
     ${({height}) => height ? 'height: ' + height : ''};
 `;
 
-export const PuzzleField = ({ cellSize, width, height, onDrop, shownPuzzles, moveDump, isWin}) => {
+export const PuzzleField = ({ cellSize, width, height, onDrop, shownPuzzles, moveDump, isWin, columns, rows}) => {
     const ratio = useSizeRatio();
     const $wrapper = useRef();
     const cellSizeR = cellSize * ratio;
@@ -64,7 +64,13 @@ export const PuzzleField = ({ cellSize, width, height, onDrop, shownPuzzles, mov
 
     return (
         <>
-            <DropDump ref={mergeRefs(!isWin ? drop : null, $wrapper)} $ratio={ratio} width={width} height={height} $move={moveDump}>
+            <DropDump 
+                ref={mergeRefs(!isWin ? drop : null, $wrapper)} 
+                $ratio={ratio} 
+                width={width} 
+                height={height} 
+                $move={moveDump}    
+            >
                 {shownPuzzles.map((puzzle) => (
                     <PuzzleStyled 
                         key={`shown_${puzzle.id}`} 

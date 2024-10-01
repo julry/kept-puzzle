@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useSizeRatio } from '../../contexts/SizeRatioContext';
 import {boardPic, head_left} from '../screens/Game1/assets';
 // import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
-import hand from '../../assets/images/hand.svg';
+import hand from '../../assets/images/hand.png';
 import { Block } from './Block';
 import { Button } from './Button';
 import { initialPuzzles } from '../screens/Game1/initialPuzzles';

@@ -65,7 +65,11 @@ export const Game1 = () => {
         if (puzzle.correctX?.includes(dropX + 1)) dropX = dropX + 1;
         if (puzzle.correctY?.includes(dropY + 1)) dropY = dropY + 1;
         if (puzzle.correctY?.includes(dropY - 1)) dropY = dropY - 1;
+        if (puzzle.correctY?.includes(dropY - 2)) dropY = dropY - 2;
+        if (puzzle.correctY?.includes(dropY + 2)) dropY = dropY + 2;
 
+        console.log(dropX, dropY);
+        console.log(puzzle.correctX, puzzle.correctY);
         if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
 
         const shownIndex = puzzles.current.shownPuzzles.findIndex(({id}) => id === puzzle.id);
@@ -119,7 +123,7 @@ export const Game1 = () => {
     return (
         <GameWrapper
             level={1} 
-            isFirstRules
+            // isFirstRules
             onDrop={handleReturn}
             onRestart={handleRestart}
             emptyPuzzles={emptyPuzzles}

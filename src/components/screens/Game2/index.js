@@ -63,12 +63,18 @@ export const Game2 = () => {
         if (x + puzzle.sizeX + 1 > COLUMNS) dropX = COLUMNS - puzzle.sizeX - 1;
         if (y + puzzle.sizeY + 1 > ROWS) dropY = ROWS - puzzle.sizeY - 1;
         
-        if (puzzle.correctX?.includes(dropX - 1)) dropX = dropX -1;
+        if (puzzle.correctX?.includes(dropX - 1)) dropX = dropX - 1;
         if (puzzle.correctX?.includes(dropX + 1)) dropX = dropX + 1;
         if (puzzle.correctY?.includes(dropY + 1)) dropY = dropY + 1;
         if (puzzle.correctY?.includes(dropY - 1)) dropY = dropY - 1;
+        
 
         if (puzzle.isOnlyPosition) {
+            if (puzzle.correctY?.includes(dropY - 2)) dropY = dropY - 2;
+            if (puzzle.correctY?.includes(dropY + 2)) dropY = dropY + 2;
+            if (puzzle.correctX?.includes(dropX - 2)) dropX = dropX - 2;
+            if (puzzle.correctX?.includes(dropX + 2)) dropX = dropX + 2;
+            
             if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
         }
         

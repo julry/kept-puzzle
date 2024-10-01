@@ -16,11 +16,12 @@ import bgFinal from '../assets/images/bgFinal.svg';
 import bgPostLvl1 from '../assets/images/bgPostLvl1.svg';
 import bgPostLvl2 from '../assets/images/bgPostLvl2.svg';
 import bgPostLvl3 from '../assets/images/bgPostLvl3.svg';
-import finalImg from '../assets/images/finalImg.svg';
-import postLvl1 from '../assets/images/postLvl1.svg';
-import postLvl2 from '../assets/images/postLvl2.svg';
-import postLvl3 from '../assets/images/postLvl3.svg';
+import finalImg from '../assets/images/finalImg.png';
+import postLvl1 from '../assets/images/postLvl1.png';
+import postLvl2 from '../assets/images/postLvl2.png';
+import postLvl3 from '../assets/images/postLvl3.png';
 import blockHeaderRules from '../assets/images/blockHeaderRules.svg';
+import hand from '../assets/images/hand.png';
 
 export const screens = [
     {
@@ -69,5 +70,5 @@ export const preloadImages = [
     picGame2.vector9, postLvl2, bgPostLvl2, picGame3.boardPic, picGame3.vector, picGame3.vector1, picGame3.vector2, 
     picGame3.vector3, picGame3.vector4, picGame3.vector5, picGame3.vector6, picGame3.vector7, 
     picGame3.vector8, picGame3.vector9, picGame3.vector10, picGame3.vector11, picGame3.vector12, 
-    picGame3.vector13, picGame3.vector14, picGame3.vector15, postLvl3, bgPostLvl3, bgFinal, finalImg
+    picGame3.vector13, picGame3.vector14, picGame3.vector15, postLvl3, bgPostLvl3, bgFinal, finalImg, hand
 ];

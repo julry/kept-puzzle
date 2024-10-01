@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import bg from "../../assets/images/bgPostLvl1.svg";
-import pic from "../../assets/images/postLvl1.svg";
+import pic from "../../assets/images/postLvl1.png";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
 import { PostGameWrapper } from "../shared/PostGameWrapper";
 

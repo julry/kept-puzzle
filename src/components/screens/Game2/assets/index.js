@@ -1,4 +1,4 @@
-import boardPic  from "./boardPic.svg";
+import boardPic  from "./boardPic.png";
 import rect  from "./rect.svg";
 import rect1  from "./rect1.svg";
 import rect2  from "./rect2.svg";

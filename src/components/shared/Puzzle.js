@@ -12,13 +12,15 @@ const PuzzleWrapper = styled.div`
     height: ${({$ratio, height}) => $ratio * height}px;
     background: url(${({src}) => src}) no-repeat ${({$xPosition}) => $xPosition ?? 0} ${({$yPosition}) => $yPosition ?? 0} / contain;
     z-index: 11;
+    transition: width 0.3s, height 0.3s;
+    box-shadow: inset 0 0 0 ${({$rectColor}) => $rectColor ? '1px ' + $rectColor : '0'};
 `;
 
 const PuzzleStyled = styled(PuzzleWrapper)`
     z-index: 111;
 `;
 
-export const Puzzle = ({ className, puzzle, isStartPuzzle }) => {
+export const Puzzle = ({ className, puzzle, isStartPuzzle, onClick, clicked }) => {
     const ratio = useSizeRatio();
     const $puzzle = useRef();
 
@@ -69,16 +71,18 @@ export const Puzzle = ({ className, puzzle, isStartPuzzle }) => {
 
     return (
         <>
-            <DragPreviewImage connect={preview} src={puzzle.src} />
             <PuzzleWrapper 
                 ref={mergeRefs($puzzle, isStartPuzzle && img === undefined ? null : drag)} 
                 className={className}
                 $ratio={ratio}  
-                width={shownWidth} 
-                height={shownHeight} 
+                width={clicked ? puzzRealWidth : shownWidth} 
+                height={clicked ? puzzRealHeight : shownHeight} 
                 $xPosition={xPosition}
                 $yPosition={yPosition}
                 src={img} 
+                onMouseEnter={() => onClick?.(puzzle.id)}
+                onMouseLeave={() => onClick?.()}
+                $rectColor={puzzle.rectColor}
             />
         </> 
     )

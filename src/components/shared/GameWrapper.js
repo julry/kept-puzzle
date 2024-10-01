@@ -58,8 +58,12 @@ const TransitionWrapper = styled.div`
 
 export const GameWrapper = ({level, children, emptyPuzzles = [], fieldSize, isFirstRules, isWin, onDrop, onRestart}) => {
     const [isFirstShown, setIsFirstShown] = useState(isFirstRules);
+    const [clicked, setClicked] = useState();
     const [isRules, setIsRules] = useState(isFirstRules);
     const ratio = useSizeRatio();
+    const isTouch = (('ontouchstart' in window) ||
+    (navigator.maxTouchPoints > 0) ||
+    (navigator.msMaxTouchPoints > 0));
 
     const handleCloseRules = () => {
         if (isFirstShown) setIsFirstShown(false);
@@ -83,6 +87,11 @@ export const GameWrapper = ({level, children, emptyPuzzles = [], fieldSize, isFi
         ],
     };
 
+    const handleClick = (id) => {
+        if (id === clicked) return;
+        setClicked(id);
+    }
+
     return (
         <SwitchTransition mode='out-in'>
              <CSSTransition key={`transition_${isRules}`} timeout={SWITCH_DURATION} classNames={SWITCH_NAME}>
@@ -98,6 +107,8 @@ export const GameWrapper = ({level, children, emptyPuzzles = [], fieldSize, isFi
                                         <StartPuzzle 
                                             key={puz.id}
                                             puz={puz}
+                                            onClick={isTouch ? undefined : handleClick}
+                                            clicked={clicked}
                                         />
                                     ))}
                                 </GameContent>
