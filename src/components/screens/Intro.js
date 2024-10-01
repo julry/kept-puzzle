@@ -19,8 +19,12 @@ const Picture = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
-    top:  ${({$ratio}) => $ratio * 39}px 0;
+    top:  ${({$ratio}) => $ratio * 39}px;
     left: 0;
+
+    @media screen and (max-width: 380px) and (max-height: 700px) {
+        top: ${({$ratio}) => $ratio * 20}px;
+    }
 `;
 
 const BlockStyled = styled(Block)`

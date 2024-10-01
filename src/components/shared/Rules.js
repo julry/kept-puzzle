@@ -112,7 +112,8 @@ export const Rules = ({onClose, isFirstRules}) => {
                             repeat: Infinity,
                             duration: 0.8,
                             repeatType: 'reverse',
-                            repeatDelay: 2
+                            repeatDelay: 1.4,
+                            delay: 0.5
                         }}
                     /> 
                     <PuzzAnimated 
@@ -129,7 +130,8 @@ export const Rules = ({onClose, isFirstRules}) => {
                             repeat: Infinity,
                             duration: 0.8,
                             repeatType: 'reverse',
-                            repeatDelay: 2
+                            repeatDelay: 1.4,
+                            delay: 0.5
                         }}
                     />
                 </RulesWrapper>
