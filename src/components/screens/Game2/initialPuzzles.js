@@ -132,7 +132,6 @@ export const initialPuzzles = [
         correctX: [6],
         correctY: [11],
         src: vector7,
-        isOnlyPosition: true,
         startPuz: {
             rotation: 0,
             left: 120,

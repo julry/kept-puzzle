@@ -20,6 +20,7 @@ import finalImg from '../assets/images/finalImg.svg';
 import postLvl1 from '../assets/images/postLvl1.svg';
 import postLvl2 from '../assets/images/postLvl2.svg';
 import postLvl3 from '../assets/images/postLvl3.svg';
+import blockHeaderRules from '../assets/images/blockHeaderRules.svg';
 
 export const screens = [
     {
@@ -61,7 +62,7 @@ export const screens = [
 ];
 
 export const preloadImages = [
-    picGame1.arm_left, picGame1.arm_right, picGame1.boardPic, picGame1.body_up, picGame1.head_left,
+    blockHeaderRules, picGame1.arm_left, picGame1.arm_right, picGame1.boardPic, picGame1.body_up, picGame1.head_left,
     picGame1.head_right, picGame1.leg_left, picGame1.leg_right, postLvl1, bgPostLvl1, picGame2.boardPic, picGame2.rect,
     picGame2.rect1, picGame2.rect2, picGame2.vector7, picGame2.vector8, picGame2.vector3, 
     picGame2.vector4, picGame2.vector5, picGame2.vector6, picGame2.vector10, picGame2.vector11, 
@@ -69,5 +70,4 @@ export const preloadImages = [
     picGame3.vector3, picGame3.vector4, picGame3.vector5, picGame3.vector6, picGame3.vector7, 
     picGame3.vector8, picGame3.vector9, picGame3.vector10, picGame3.vector11, picGame3.vector12, 
     picGame3.vector13, picGame3.vector14, picGame3.vector15, postLvl3, bgPostLvl3, bgFinal, finalImg
-
 ];

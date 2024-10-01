@@ -101,10 +101,11 @@ export const Game1 = () => {
     }
 
     const handleReturn = (puzzle) => {
+        if (!puzzles.current.shownPuzzles.find(({id}) => id === puzzle.id)) return;
         puzzles.current.placedCells = puzzles.current.placedCells.filter(({id}) => id !== puzzle.id);
         puzzles.current.shownPuzzles = puzzles.current.shownPuzzles.filter(({id}) => id !== puzzle.id);
         
-        setEmptyPuzzles((prev) => [...prev, puzzle]);
+        setEmptyPuzzles((prev) => prev.find(({id}) => puzzle.id === id) ? prev : [...prev, puzzle]);
     }
 
     const handleRestart = () => {
