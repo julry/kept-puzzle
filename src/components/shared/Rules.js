@@ -7,18 +7,20 @@ import { Block } from './Block';
 import { Button } from './Button';
 import { initialPuzzles } from '../screens/Game1/initialPuzzles';
 import { motion } from 'framer-motion';
+import { FlexWrapper } from './FlexWrapper';
 
-const Wrapper = styled.div`
+const Wrapper = styled(FlexWrapper)`
     position: absolute;
     inset: 0;
     z-index: 1000;
     background: #531A56;
+    justify-content: center;
+    align-items: center;
+    padding: ${({$ratio}) => $ratio * 67}px ${({$ratio}) => $ratio * 30}px ${({$ratio}) => $ratio * 30}px;
+
 `;
 
 const Content = styled(Block)`
-    position: absolute;
-    inset: ${({$ratio}) => $ratio * 30}px;
-    top: ${({$ratio}) => $ratio * 67}px;
     padding: ${({$ratio}) => $ratio * 26}px ${({$ratio}) => $ratio * 20}px ${({$ratio}) => $ratio * 20}px;
     flex-direction: column;
     justify-content: space-between;
@@ -78,7 +80,7 @@ export const Rules = ({onClose, isFirstRules}) => {
     }
 
     return (
-        <Wrapper>
+        <Wrapper $ratio={ratio}>
             <Content $ratio={ratio} isRules>
                 <p>
                     {'Перетаскивай детали из поля внизу экрана внутрь заданной рамки.\nОни должны заполнить пространство без пробелов.'}
