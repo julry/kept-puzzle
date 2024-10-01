@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
     position: absolute;
-    top: ${({$ratio, $isRules}) => $ratio * ($isRules ? -37 : -28)}px;
+    top: ${({$ratio, $isRules}) => $ratio * ($isRules ? -37 : -27)}px;
     left: 0;
     z-index: 2;
     width: 100%;
