@@ -74,6 +74,7 @@ export const Game3 = () => {
             if (puzzle.correctX?.includes(dropX + 2)) dropX = dropX + 2;
             if (puzzle.correctY?.includes(dropY + 2)) dropY = dropY + 2;
             if (puzzle.correctY?.includes(dropY - 2)) dropY = dropY - 2;
+
             if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
         }
         
@@ -116,11 +117,11 @@ export const Game3 = () => {
             };
 
         if (shownIndex !== -1) {
-            puzzles.current.shownPuzzles[shownIndex] = newPuz;
+            puzzles.current.shownPuzzles = puzzles.current.shownPuzzles.filter(({id}) => id !== puzzle.id);
             puzzles.current.placedCells = puzzles.current.placedCells.filter(({id}) => id !== puzzle.id);
-        } else {
-            puzzles.current.shownPuzzles.push(newPuz);
-        }
+        } 
+
+        puzzles.current.shownPuzzles.push(newPuz);
 
         setEmptyPuzzles((prev) => prev.filter(({id}) => id !== puzzle.id));
 
@@ -149,10 +150,13 @@ export const Game3 = () => {
     const handleRestart = () => {
         puzzles.current = {
             shownPuzzles: [],
-            placedCells: initialPlaced,
+            placedCells: [...initialPlaced],
         }
+        
+        puzzles.current.placedCells = [...initialPlaced];
+        puzzles.current.shownPuzzles = [];
 
-        setEmptyPuzzles(initialPuzzles);
+        setEmptyPuzzles([...initialPuzzles]);
     }
 
     return (

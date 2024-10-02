@@ -26,7 +26,7 @@ const ShiningStyled = styled(Shining)`
 `;
 
 const COLUMNS = 18;
-const ROWS = 16;
+const ROWS = 14;
 
 export const Game2 = () => {
     const [emptyPuzzles, setEmptyPuzzles] = useState(initialPuzzles);
@@ -40,7 +40,7 @@ export const Game2 = () => {
 
     const ratio = useSizeRatio();
 
-    const handleDrop = (puzzle, x, y, {isSligtlyRight, isSligtlyUp, isMoreUp}) => {
+    const handleDrop = (puzzle, x, y) => {
         let dropX = x;
         let dropY = y;
         let placedPuzzles = [];
@@ -56,8 +56,8 @@ export const Game2 = () => {
             dropY = 1;
         }
 
-        if (y === 15) {
-            dropY = 14;
+        if (y === 13) {
+            dropY = 12;
         }
 
         if (x + puzzle.sizeX + 1 > COLUMNS) dropX = COLUMNS - puzzle.sizeX - 1;
@@ -85,44 +85,42 @@ export const Game2 = () => {
         }
 
         if (!isEmpty) {
-            if (isSligtlyRight || isSligtlyUp) {
-                let isSomeEmpty = false;
-                if (isMoreUp && isSligtlyUp && dropY + 1 <= ROWS - puzzle.sizeY) {
-                    const {isEmpty: isEmptyDown, placed: placedDown} = 
-                        findPlacedCells(dropX, dropY + 1, puzzle, puzzles.current.placedCells);
+            let isSomeEmpty = false;
+            if (dropY + 1 <= ROWS - puzzle.sizeY) {
+                const {isEmpty: isEmptyDown, placed: placedDown} = 
+                    findPlacedCells(dropX, dropY + 1, puzzle, puzzles.current.placedCells);
 
-                    isSomeEmpty = isEmptyDown;
-                    placedPuzzles = [...placedDown];
-                    if (isSomeEmpty) dropY = dropY + 1;
-                } 
+                isSomeEmpty = isEmptyDown;
+                placedPuzzles = [...placedDown];
+                if (isSomeEmpty) dropY = dropY + 1;
+            } 
 
-                if ((!isSomeEmpty || !isSligtlyUp) && dropX + 1 <= COLUMNS - puzzle.sizeX) {
-                    const {isEmpty: isEmptyRight, placed: placedRight} = 
-                        findPlacedCells(dropX + 1, dropY, puzzle, puzzles.current.placedCells);
-                    isSomeEmpty = isEmptyRight;
-                    placedPuzzles = [...placedRight];
-                    if (isSomeEmpty) dropX = dropX + 1;
-                }
-                if (!isSomeEmpty) return;
-            } else return;
+            if (!isSomeEmpty && dropX + 1 <= COLUMNS - puzzle.sizeX) {
+                const {isEmpty: isEmptyRight, placed: placedRight} = 
+                    findPlacedCells(dropX + 1, dropY, puzzle, puzzles.current.placedCells);
+                isSomeEmpty = isEmptyRight;
+                placedPuzzles = [...placedRight];
+                if (isSomeEmpty) dropX = dropX + 1;
+            }
+            if (!isSomeEmpty) return;
         } 
 
         const shownIndex = puzzles.current.shownPuzzles.findIndex(({id}) => id === puzzle.id);
 
         const newPuz = {
-                ...puzzle, 
-                top: dropY, 
-                left: dropX,
-                positionX: dropX,
-                positionY: dropY,
-            };
+            ...puzzle, 
+            top: dropY, 
+            left: dropX,
+            positionX: dropX,
+            positionY: dropY,
+        };
 
         if (shownIndex !== -1) {
-            puzzles.current.shownPuzzles[shownIndex] = newPuz;
+            puzzles.current.shownPuzzles = puzzles.current.shownPuzzles.filter(({id}) => id !== puzzle.id);
             puzzles.current.placedCells = puzzles.current.placedCells.filter(({id}) => id !== puzzle.id);
-        } else {
-            puzzles.current.shownPuzzles.push(newPuz);
-        }
+        } 
+        
+        puzzles.current.shownPuzzles.push(newPuz);
 
         setEmptyPuzzles((prev) => prev.filter(({id}) => id !== puzzle.id));
 
@@ -133,10 +131,10 @@ export const Game2 = () => {
                 ((!correctX || correctX.includes(positionX)) && (!correctY || correctY.includes(positionY)))
             ).length
 
-        if (correctLength === puzzles.current.shownPuzzles.length){
-            setIsWin(true);
-            setTimeout(() => next(), 600);
-        }
+            if (correctLength === puzzles.current.shownPuzzles.length){
+                setIsWin(true);
+                setTimeout(() => next(), 600);
+            }
        }
     }
 
@@ -151,9 +149,13 @@ export const Game2 = () => {
     const handleRestart = () => {
         puzzles.current = {
             shownPuzzles: [],
-            placedCells: initialPlaced,
+            placedCells: [...initialPlaced],
         }
-        setEmptyPuzzles(initialPuzzles);
+
+        puzzles.current.shownPuzzles = [];
+        puzzles.current.placedCells = [...initialPlaced];
+        
+        setEmptyPuzzles([...initialPuzzles]);
     }
 
     return (

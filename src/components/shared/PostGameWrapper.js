@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useProgress } from "../../contexts/ProgressContext";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
-import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
+// import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 import { Block } from "./Block";
 import { Button } from "./Button";
 import { FlexWrapper } from "./FlexWrapper";
@@ -15,14 +15,15 @@ const Content = styled(FlexWrapper)`
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    padding-bottom: ${({$ratio}) => $ratio * 28}px;
+`;
+
+const BlockWrapper = styled.div`
+    margin-top: auto;
 `;
 
 const BlockStyled = styled(Block)`
-    padding-bottom: ${({$ratio}) => $ratio * 20}px;
     font-size: ${({$ratio}) => $ratio * 14}px;
-    margin-top: auto;
-    flex-direction: column;
+    padding-bottom: ${({$ratio}) => $ratio * 20}px;
 
     & button {
         margin-top: ${({$ratio}) => $ratio * 40}px;
@@ -67,10 +68,12 @@ export const PostGameWrapper = ({level, children, text, bg, metrika, btnText = "
             <Content $ratio={ratio}>
                 {children}
             </Content>
-            <BlockStyled $ratio={ratio}>
-                {text}
-                <Button onClick={handleNext}>{btnText}</Button>
-            </BlockStyled>
+            <BlockWrapper>
+                <BlockStyled $ratio={ratio}>
+                    {text}
+                    <Button onClick={handleNext}>{btnText}</Button>
+                </BlockStyled>
+            </BlockWrapper>
         </Wrapper>
     )
 }

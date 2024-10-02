@@ -46,8 +46,8 @@ export const Game1 = () => {
             dropX = 1;
         }
 
-        if (x === 17) {
-            dropX = 16;
+        if (x === 11) {
+            dropX = 10;
         }
 
         if (y === 0) {
@@ -68,8 +68,6 @@ export const Game1 = () => {
         if (puzzle.correctY?.includes(dropY - 2)) dropY = dropY - 2;
         if (puzzle.correctY?.includes(dropY + 2)) dropY = dropY + 2;
 
-        console.log(dropX, dropY);
-        console.log(puzzle.correctX, puzzle.correctY);
         if (!puzzle.correctX?.includes(dropX) || !puzzle.correctY?.includes(dropY)) return;
 
         const shownIndex = puzzles.current.shownPuzzles.findIndex(({id}) => id === puzzle.id);
@@ -83,11 +81,11 @@ export const Game1 = () => {
         }
 
         if (shownIndex !== -1) {
-            puzzles.current.shownPuzzles[shownIndex] = newPuz;
+            puzzles.current.shownPuzzles = puzzles.current.shownPuzzles.filter(({id}) => id !== puzzle.id);
             puzzles.current.placedCells = puzzles.current.placedCells.filter(({id}) => id !== puzzle.id);
-        } else {
-            puzzles.current.shownPuzzles.push(newPuz);
-        }
+        } 
+        
+        puzzles.current.shownPuzzles.push(newPuz);
 
         setEmptyPuzzles((prev) => prev.filter(({id}) => id !== puzzle.id));
 
@@ -117,7 +115,7 @@ export const Game1 = () => {
             shownPuzzles: [],
             placedCells: [],
         }
-        setEmptyPuzzles(initialPuzzles);
+        setEmptyPuzzles([...initialPuzzles]);
     }
 
     return (

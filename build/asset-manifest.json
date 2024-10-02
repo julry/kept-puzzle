@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.610d7ed7.css",
-    "main.js": "./static/js/main.051093ce.js",
+    "main.js": "./static/js/main.4fe8d284.js",
     "static/media/Montserrat-Bold.ttf": "./static/media/Montserrat-Bold.50f0257aa1e905f4bfaf.ttf",
     "static/media/Manrope-Medium.ttf": "./static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
     "static/media/Manrope-Regular.ttf": "./static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
@@ -12,13 +12,13 @@
     "static/media/postLvl3.png": "./static/media/postLvl3.bc3bdf09058b36315dce.png",
     "static/media/postLvl2.png": "./static/media/postLvl2.0ba9092e039f7ea6910c.png",
     "static/media/boardPic.png": "./static/media/boardPic.44f52666b0ad570dbde8.png",
-    "static/media/blockHeaderRules.svg": "./static/media/blockHeaderRules.c2f303c2f09a9a57706ade75350409de.svg",
+    "static/media/blockHeaderRules.svg": "./static/media/blockHeaderRules.4d367ab9861b055ffa051c9e9a1f98f1.svg",
     "static/media/logo.svg": "./static/media/logo.39eae93f47070ed42e5212329d4b06bc.svg",
     "static/media/bgFinal.svg": "./static/media/bgFinal.9c138ced0fe731bb49597c7c564c76f6.svg",
     "static/media/bgPostLvl1.svg": "./static/media/bgPostLvl1.f75fa18407577c1838ee23aa4700e631.svg",
     "static/media/bgPostLvl2.svg": "./static/media/bgPostLvl2.60dcbba47101a3eb1ad361fa7c147bd1.svg",
     "static/media/bgPostLvl3.svg": "./static/media/bgPostLvl3.f03bc0cc5ed07e1e0c7d48afe4f55401.svg",
-    "static/media/blockHeader.svg": "./static/media/blockHeader.afc75914a3d50a0292d56af160221fce.svg",
+    "static/media/blockHeader.svg": "./static/media/blockHeader.182d16d7be3ba3ccad41d27709f72399.svg",
     "index.html": "./index.html",
     "static/media/arm_left.svg": "./static/media/arm_left.ab62d0340c9416ea9f27678d6b5c6b2b.svg",
     "static/media/intro-bg.svg": "./static/media/intro-bg.47996f935897defab00c4525c67f3bf1.svg",
@@ -57,10 +57,10 @@
     "static/media/Vector-9.svg": "./static/media/Vector-9.b234693caf5e964d51e3f89cc1ad2c51.svg",
     "static/media/vector9.svg": "./static/media/vector9.0435b77bb267508f12a7afd4160d661a.svg",
     "main.610d7ed7.css.map": "./static/css/main.610d7ed7.css.map",
-    "main.051093ce.js.map": "./static/js/main.051093ce.js.map"
+    "main.4fe8d284.js.map": "./static/js/main.4fe8d284.js.map"
   },
   "entrypoints": [
     "static/css/main.610d7ed7.css",
-    "static/js/main.051093ce.js"
+    "static/js/main.4fe8d284.js"
   ]
 }

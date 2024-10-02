@@ -11,6 +11,8 @@ const DropDump = styled.div`
     margin-top: ${({$move, $ratio}) => $move ? $ratio * $move + 'px' : '0'};
     width: ${({$ratio, width}) => $ratio * width}px;
     height: ${({$ratio, height}) => $ratio * height}px;
+    display: flex;
+    flex-wrap: wrap;
 `;
 
 const PuzzleStyled = styled(Puzzle)`
@@ -71,6 +73,11 @@ export const PuzzleField = ({ cellSize, width, height, onDrop, shownPuzzles, mov
                 height={height} 
                 $move={moveDump}    
             >
+                {/* {Array.from({length: (width * height)/(18 * 18) }, (v, i) => [i % (width / 18), Math.floor(i / (width / 18))]).map((r) => (
+                    <p style={{width: 18 * ratio + 'px', height: 18 * ratio + 'px', fontSize: '8px', color: 'white', boxShadow: 'inset 0 0 0 1px  white'}}>
+                        {r[0]}/{r[1]}
+                    </p>
+                ))} */}
                 {shownPuzzles.map((puzzle) => (
                     <PuzzleStyled 
                         key={`shown_${puzzle.id}`} 

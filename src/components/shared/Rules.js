@@ -17,11 +17,10 @@ const Wrapper = styled(FlexWrapper)`
     justify-content: center;
     align-items: center;
     padding: ${({$ratio}) => $ratio * 67}px ${({$ratio}) => $ratio * 30}px ${({$ratio}) => $ratio * 30}px;
-
 `;
 
 const Content = styled(Block)`
-    padding: ${({$ratio}) => $ratio * 26}px ${({$ratio}) => $ratio * 20}px ${({$ratio}) => $ratio * 20}px;
+    padding-bottom: ${({$ratio}) => $ratio * 20}px;
     flex-direction: column;
     justify-content: space-between;
     font-size:  ${({$ratio}) => $ratio * 14}px;
