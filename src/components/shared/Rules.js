@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { useSizeRatio } from '../../contexts/SizeRatioContext';
 import {boardPic, head_left} from '../screens/Game1/assets';
 // import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
@@ -6,10 +7,10 @@ import hand from '../../assets/images/hand.png';
 import { Block } from './Block';
 import { Button } from './Button';
 import { initialPuzzles } from '../screens/Game1/initialPuzzles';
-import { motion } from 'framer-motion';
-import { FlexWrapper } from './FlexWrapper';
 
-const Wrapper = styled(FlexWrapper)`
+const Wrapper = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
     position: absolute;
     inset: 0;
     z-index: 1000;
@@ -71,15 +72,19 @@ const PuzzAnimated = styled(motion.div)`
 
 export const Rules = ({onClose, isFirstRules}) => {
     const ratio = useSizeRatio();
-    // const block = useRef();
-    // const element = useRef();
    
     const handleClose = () => {
         onClose();
     }
 
     return (
-        <Wrapper $ratio={ratio}>
+        <Wrapper 
+            $ratio={ratio} 
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.2}}
+        >
             <Content $ratio={ratio} isRules>
                 <p>
                     {'Перетаскивай детали из поля внизу экрана внутрь заданной рамки.\nОни должны заполнить пространство без пробелов.'}
@@ -137,5 +142,5 @@ export const Rules = ({onClose, isFirstRules}) => {
                 <Button onClick={handleClose}>{isFirstRules ? 'начинаем' : 'понятно'}</Button>
             </Content>
         </Wrapper>
-    )
-}
+    );
+};

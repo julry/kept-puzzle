@@ -29,7 +29,7 @@ const ReloadBtn = styled(RoundButton)`
     }
 `;
 
-const SWITCH_DURATION = 500;
+const SWITCH_DURATION = 250;
 
 const SWITCH_NAME = 'switch';
 

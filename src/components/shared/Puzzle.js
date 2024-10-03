@@ -14,6 +14,8 @@ const PuzzleWrapper = styled.div`
     z-index: 11;
     transition: width 0.3s, height 0.3s;
     box-shadow: inset 0 0 0 ${({$rectColor}) => $rectColor ? '1px ' + $rectColor : '0'};
+    border-radius: ${({$ratio, $borderRadius}) => $borderRadius ? $borderRadius?.($ratio) : 'none'};
+    /* ${({$rectColor}) => $rectColor ? 'background-color: ' + $rectColor : ''}; */
 `;
 
 const PuzzleStyled = styled(PuzzleWrapper)`
@@ -83,6 +85,7 @@ export const Puzzle = ({ className, puzzle, isStartPuzzle, onClick, clicked }) =
                 onMouseEnter={() => onClick?.(puzzle.id)}
                 onMouseLeave={() => onClick?.()}
                 $rectColor={puzzle.rectColor}
+                $borderRadius={puzzle.borderRadius}
             />
         </> 
     )

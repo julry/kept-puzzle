@@ -22,6 +22,8 @@ export const initialPuzzles = [
         puzzHeight: 79,
         puzzRealWidth: 18,
         puzzRealHeight: 90,
+        rectColor: '#2ADBDB',
+        borderRadius: (ratio) => `${ratio * 15}px 0 0 ${ratio * 15}px`,
     },
     {
         id: 2,
@@ -40,6 +42,8 @@ export const initialPuzzles = [
         puzzHeight: 79,
         puzzRealWidth: 18,
         puzzRealHeight: 90,
+        rectColor: '#2ADBDB',
+        borderRadius: (ratio) => `0 ${ratio * 15}px ${ratio * 15}px 0`,
     },
     {
         id: 3,
@@ -110,6 +114,8 @@ export const initialPuzzles = [
         puzzRealWidth: 54,
         puzzRealHeight: 54,
         isOnlyPosition: true,
+        rectColor: '#FF605C',
+        borderRadius: (ratio) => `0 0 ${ratio * 5}px 0`,
     },
     {
         id: 7,
@@ -182,6 +188,8 @@ export const initialPuzzles = [
         puzzHeight: 32,
         puzzRealWidth: 54,
         puzzRealHeight: 36,
+        rectColor: '#A39CFF',
+        borderRadius: (ratio) => `0 0 0 ${ratio * 5}px`,
     },
     {
         id: 11,
@@ -234,6 +242,7 @@ export const initialPuzzles = [
         puzzHeight: 47,
         puzzRealWidth: 36,
         puzzRealHeight: 54,
+        xPosition: '100%'
     },
     {
         id: 14,

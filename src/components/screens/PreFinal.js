@@ -36,6 +36,7 @@ const InputStyled = styled.input`
 
     &::placeholder {
         color: #531A56;
+        opacity: 0.3;
     }
 `;
 
