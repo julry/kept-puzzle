@@ -14,7 +14,7 @@ const Wrapper = styled(FlexWrapper)`
 
 const BlockStyled = styled(Block)`
     font-size: ${({$ratio}) => $ratio * 18}px;
-    margin: ${({$ratio}) => $ratio * 27}px 0 ${({$ratio}) => $ratio * 30}px;
+    margin-bottom: ${({$ratio}) => $ratio * 30}px;
 `;
 
 const ImageStyled = styled.img`
