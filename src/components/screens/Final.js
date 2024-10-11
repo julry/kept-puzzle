@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
 import bg from "../../assets/images/bgFinal.svg";
 import pic from "../../assets/images/finalImg.png";
-import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 import { Block } from "../shared/Block";
 import { Button } from "../shared/Button";
 import { FlexWrapper } from "../shared/FlexWrapper";
@@ -30,7 +29,6 @@ export const Final = () => {
     const ratio = useSizeRatio();
 
     const handleOpenLink = () => {
-        // reachMetrikaGoal(metrika);
         window.open('', '_blank');
     }
 

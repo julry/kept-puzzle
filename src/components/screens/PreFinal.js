@@ -12,12 +12,13 @@ const Wrapper = styled(FlexWrapper)`
 
 const Title = styled.h3`
     font-size: ${({$ratio}) => $ratio * 18}px;
-    margin-bottom: ${({$ratio}) => $ratio * 22}px;
+    margin-bottom: ${({$ratio}) => $ratio * 15}px;
 `;
 
 const BlockStyled = styled(Block)`
     flex-direction: column;
-    padding-bottom: ${({$ratio}) => $ratio * 16}px;
+    padding-bottom: ${({$ratio}) => $ratio * 10}px;
+    padding-top: ${({$ratio}) => $ratio * 25}px;
 
     & p {
         font-size: ${({$ratio}) => $ratio * 14}px;
@@ -81,7 +82,7 @@ const Link = styled.a`
 `;
 
 const ButtonStyled = styled(Button)`
-    margin-top: ${({$ratio}) => $ratio * 30}px;
+    margin-top: ${({$ratio}) => $ratio * 15}px;
 
     & + & {
         margin-top: ${({$ratio}) => $ratio * 10}px;
@@ -89,7 +90,7 @@ const ButtonStyled = styled(Button)`
 `;
 
 export const PreFinal = () => {
-    const {next} = useProgress();
+    const {next, registrateEmail} = useProgress();
     const [email, setEmail] = useState(''); 
     const [isAgreed, setIsAgreed] = useState(false);
     const [isCorrect, setIsCorrect] = useState(true);
@@ -115,7 +116,7 @@ export const PreFinal = () => {
     const handleClick = async () => {
         if (isSending) return;
         setIsSending(true);
-       
+        await registrateEmail({email});
         setIsSending(false);
         next();
     }
@@ -130,7 +131,7 @@ export const PreFinal = () => {
                     Теперь ты знаешь, как важно, чтобы все детальки были на своем месте. Так и в Kept:{' '}
                     каждое действие и сотрудник важны для получения крутого результата. Поэтому компания старается{' '}
                     создать комфортные условия для развития каждого человека.{'\n\n'}
-                    <b>Участвуй в розыгрыше от Kept и получи шанс выиграть «название приза».</b>{'\n'}
+                    <b>Участвуй в розыгрыше от Kept и получи шанс выиграть карьерную консультацию, фаст-трек на образовательные программы или мерч.</b>{'\n'}
                     Введи свой email — если победишь, мы с тобой свяжемся:
                 </p>
                 <InputStyled 

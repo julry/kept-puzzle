@@ -19,11 +19,11 @@ const Picture = styled.img`
     width: 100%;
     height: auto;
     object-fit: cover;
-    top:  ${({$ratio}) => $ratio * 39}px;
+    top:  ${({$ratio}) => $ratio * 19}px;
     left: 0;
 
     @media screen and (max-width: 380px) and (max-height: 700px) {
-        top: ${({$ratio}) => $ratio * 20}px;
+        top: 0;
     }
 `;
 
@@ -71,7 +71,7 @@ export const Intro = () => {
             <Content $ratio={ratio}>
                 <BlockStyled  $ratio={ratio}>
                     <p>
-                        Реши головоломки{'\n'}от компании Kept и узнай, в чем секрет достижения крутых результатов на работе
+                        Реши головоломки{'\n'}от компании Kept, узнай, в чем секрет достижения крутых результатов на работе, и выиграй призы!
                     </p>
                 </BlockStyled>
                 <ButtonStyled onClick={handleNext}>далее</ButtonStyled>

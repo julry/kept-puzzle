@@ -18,6 +18,7 @@ export const initialPuzzles = [
         puzzRealWidth: 54,
         puzzRealHeight: 90,
         xPosition: '100%',
+        yPosition: '100%'
     },
     {
         id: 2,
@@ -33,8 +34,9 @@ export const initialPuzzles = [
         },
         puzzWidth: 39,
         puzzHeight: 80,
-        puzzRealWidth: 44,
+        puzzRealWidth: 54,
         puzzRealHeight: 90,
+        yPosition: '100%'
     },
     {
         id: 3,
@@ -52,7 +54,8 @@ export const initialPuzzles = [
         puzzHeight: 117,
         puzzRealWidth: 90,
         puzzRealHeight: 144,
-        yPosition: '100%'
+        yPosition: '100%',
+        xPosition: '100%',
     },
     {
         id: 4,
@@ -70,7 +73,7 @@ export const initialPuzzles = [
         puzzHeight: 65,
         puzzRealWidth: 126,
         puzzRealHeight: 72,
-        yPosition: '100%'
+        yPosition: '100%',
     },
     {
         id: 5,
@@ -89,7 +92,6 @@ export const initialPuzzles = [
         puzzRealWidth: 90,
         puzzRealHeight: 72,
         yPosition: '100%',
-        xPosition: '100%',
     },
     {
         id: 6,

@@ -208,6 +208,7 @@ export const initialPuzzles = [
         puzzHeight: 79,
         puzzRealWidth: 54,
         puzzRealHeight: 90,
+        xPosition: '100%'
     },
     {
         id: 12,

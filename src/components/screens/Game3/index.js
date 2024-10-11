@@ -13,7 +13,7 @@ const Picture = styled.img`
     position: absolute;
     z-index: 2;
     width: ${({$ratio}) => $ratio * 180}px;
-    height: ${({$ratio}) => $ratio * 286}px;
+    height: ${({$ratio}) => $ratio * 288}px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -175,7 +175,6 @@ export const Game3 = () => {
                 height={324} 
                 rows={ROWS}
                 columns={COLUMNS}
-                moveDump={-2}
                 onDrop={handleDrop}
                 shownPuzzles={puzzles.current.shownPuzzles}
             />
