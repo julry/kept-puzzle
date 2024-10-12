@@ -231,8 +231,8 @@ export const initialPuzzles = [
         id: 13,
         sizeX: 2,
         sizeY: 3,
-        correctX: [8],
-        correctY: [7],
+        correctX: [5, 8],
+        correctY: [4, 7],
         src: vector12,
         startPuz: {
             rotation: 42,
@@ -249,8 +249,8 @@ export const initialPuzzles = [
         id: 14,
         sizeX: 2,
         sizeY: 3,
-        correctX: [5],
-        correctY: [4],
+        correctX: [5, 8],
+        correctY: [4, 7],
         src: vector13,
         startPuz: {
             rotation: -32,
