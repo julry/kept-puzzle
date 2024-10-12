@@ -125,15 +125,14 @@ export const initialPuzzles = [
         isOnlyPosition: true,
         src: vector6,
         startPuz: {
-        rotation: 30,
-        left: 105,
-        top: 115,
+            rotation: 30,
+            left: 105,
+            top: 115,
         },
         puzzWidth: 40,
         puzzHeight: 27,
         puzzRealWidth: 54,
         puzzRealHeight: 36,
-        yPosition: '100%',
     },
     {
         id: 8,

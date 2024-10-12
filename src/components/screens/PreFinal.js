@@ -12,7 +12,7 @@ const Wrapper = styled(FlexWrapper)`
 
 const Title = styled.h3`
     font-size: ${({$ratio}) => $ratio * 18}px;
-    margin-bottom: ${({$ratio}) => $ratio * 15}px;
+    margin-bottom: ${({$ratio}) => $ratio * 13}px;
 `;
 
 const BlockStyled = styled(Block)`
@@ -31,7 +31,7 @@ const InputStyled = styled.input`
     background: rgba(202, 197, 249, ${({$isCorrect}) => $isCorrect ? 0.5 : 0.3});
     color: ${({$isCorrect}) => $isCorrect ? '#531A56' : '#FF605C'};
     padding: ${({$ratio}) => $ratio * 13}px ${({$ratio}) => $ratio * 20}px;
-    margin: ${({$ratio}) => $ratio * 22}px 0 ${({$ratio}) => $ratio * 10}px;
+    margin: ${({$ratio}) => $ratio * 18}px 0 ${({$ratio}) => $ratio * 10}px;
     width: 100%;
     border-radius: ${({$ratio}) => $ratio * 30}px;
 
@@ -82,7 +82,7 @@ const Link = styled.a`
 `;
 
 const ButtonStyled = styled(Button)`
-    margin-top: ${({$ratio}) => $ratio * 15}px;
+    margin-top: ${({$ratio}) => $ratio * 13}px;
 
     & + & {
         margin-top: ${({$ratio}) => $ratio * 10}px;

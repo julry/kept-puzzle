@@ -29,6 +29,12 @@ const BlockStyled = styled(Block)`
         margin-top: ${({$ratio}) => $ratio * 40}px;
         width: ${({$ratio}) => $ratio * 275}px;
     }
+
+    @media screen and (max-width: 400px) and (max-height: 630px){
+        & button {
+            margin-top: ${({$ratio}) => $ratio * 30}px;
+        }
+    }
 `;
 
 const LevelWrapper = styled.div`
