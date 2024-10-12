@@ -17,7 +17,7 @@ export function ProgressProvider(props) {
 
     useEffect(() => {
         client.current = new FTClient(
-            'https://ft-admin-api.sjuksin.ru/',
+            'https://games-admin.fut.ru/api/',
             'kept-pazzle'
         );
     }, []);

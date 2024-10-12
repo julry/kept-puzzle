@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.610d7ed7.css",
-    "main.js": "./static/js/main.141c2c4f.js",
+    "main.js": "./static/js/main.d8d929f4.js",
     "static/media/Montserrat-Bold.ttf": "./static/media/Montserrat-Bold.50f0257aa1e905f4bfaf.ttf",
     "static/media/Manrope-Medium.ttf": "./static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
     "static/media/Manrope-Regular.ttf": "./static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
@@ -24,10 +24,10 @@
     "static/media/leg_left.svg": "./static/media/leg_left.85cce0e4931fd69e7ef1e37da249c583.svg",
     "static/media/leg_right.svg": "./static/media/leg_right.ba963130c30042ad6e25ef8a77f05174.svg",
     "main.610d7ed7.css.map": "./static/css/main.610d7ed7.css.map",
-    "main.141c2c4f.js.map": "./static/js/main.141c2c4f.js.map"
+    "main.d8d929f4.js.map": "./static/js/main.d8d929f4.js.map"
   },
   "entrypoints": [
     "static/css/main.610d7ed7.css",
-    "static/js/main.141c2c4f.js"
+    "static/js/main.d8d929f4.js"
   ]
 }
