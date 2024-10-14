@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import logo from "../../assets/images/logo.svg";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
 import { RoundButton } from "./Button";
 

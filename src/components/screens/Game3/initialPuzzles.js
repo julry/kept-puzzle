@@ -61,6 +61,7 @@ export const initialPuzzles = [
         puzzHeight: 31,
         puzzRealWidth: 36,
         puzzRealHeight: 36,
+        isOnlyPosition: true,
     },
     {
         id: 4,
@@ -78,6 +79,7 @@ export const initialPuzzles = [
         puzzHeight: 31,
         puzzRealWidth: 36,
         puzzRealHeight: 36,
+        isOnlyPosition: true,
     },
     {
         id: 5,
@@ -140,8 +142,8 @@ export const initialPuzzles = [
         id: 8,
         sizeX: 2,
         sizeY: 5,
-        correctX: [5],
-        correctY: [10],
+        correctX: undefined,
+        correctY: undefined,
         src: vector8,
         startPuz: {
             rotation: 0,
@@ -226,13 +228,14 @@ export const initialPuzzles = [
         puzzHeight: 47,
         puzzRealWidth: 54,
         puzzRealHeight: 54,
+        isOnlyPosition: true,
     },
     {
         id: 13,
         sizeX: 2,
         sizeY: 3,
-        correctX: [5, 8],
-        correctY: [4, 7],
+        correctX: undefined,
+        correctY: undefined,
         src: vector12,
         startPuz: {
             rotation: 42,
@@ -249,8 +252,8 @@ export const initialPuzzles = [
         id: 14,
         sizeX: 2,
         sizeY: 3,
-        correctX: [5, 8],
-        correctY: [4, 7],
+        correctX: undefined,
+        correctY: undefined,
         src: vector13,
         startPuz: {
             rotation: -32,
