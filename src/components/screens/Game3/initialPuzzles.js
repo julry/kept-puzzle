@@ -246,7 +246,8 @@ export const initialPuzzles = [
         puzzHeight: 47,
         puzzRealWidth: 36,
         puzzRealHeight: 54,
-        xPosition: '100%'
+        xPosition: '100%',
+        rectColor: '#FF605C',
     },
     {
         id: 14,
