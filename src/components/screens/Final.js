@@ -29,7 +29,7 @@ export const Final = () => {
     const ratio = useSizeRatio();
 
     const handleOpenLink = () => {
-        window.open('', '_blank');
+        window.open('https://t.me/keptcareer', '_blank');
     }
 
     return (

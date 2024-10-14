@@ -162,6 +162,7 @@ export const PreFinal = () => {
                         </Link>
                         {" "}и получение информационных сообщений, а также с{' '}
                         <Link
+                            href={"https://kept-braingame.fut.ru/agreement.pdf"}
                             target="_blank"
                         >правилами проведения акции</Link>.
                     </span>
