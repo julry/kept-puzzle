@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useProgress } from "../../contexts/ProgressContext";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
-// import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
+import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 import { Block } from "./Block";
 import { Button } from "./Button";
 import { FlexWrapper } from "./FlexWrapper";
@@ -53,12 +53,12 @@ const LevelWrapper = styled.div`
     }
 `;
 
-export const PostGameWrapper = ({level, children, text, bg, metrika, btnText = "далее"}) => {
+export const PostGameWrapper = ({level, children, text, bg, btnText = "далее"}) => {
     const {next} = useProgress();
     const ratio = useSizeRatio();
 
     const handleNext = () => {
-        // reachMetrikaGoal(metrika);
+        reachMetrikaGoal(`level${level}`);
         next();
     }
 

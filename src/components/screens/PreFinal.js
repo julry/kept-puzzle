@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useProgress } from "../../contexts/ProgressContext";
 import { useSizeRatio } from "../../contexts/SizeRatioContext";
+import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 import { Block } from "../shared/Block";
 import { Button } from "../shared/Button";
 import { FlexWrapper } from "../shared/FlexWrapper";
@@ -117,6 +118,7 @@ export const PreFinal = () => {
         if (isSending) return;
         setIsSending(true);
         await registrateEmail({email});
+        reachMetrikaGoal('mail');
         setIsSending(false);
         next();
     }

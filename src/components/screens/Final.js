@@ -5,6 +5,7 @@ import pic from "../../assets/images/finalImg.png";
 import { Block } from "../shared/Block";
 import { Button } from "../shared/Button";
 import { FlexWrapper } from "../shared/FlexWrapper";
+import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 
 const Wrapper = styled(FlexWrapper)`
     background: url(${bg}) no-repeat 0 0 / cover;
@@ -29,6 +30,7 @@ export const Final = () => {
     const ratio = useSizeRatio();
 
     const handleOpenLink = () => {
+        reachMetrikaGoal('telegram');
         window.open('https://t.me/keptcareer', '_blank');
     }
 

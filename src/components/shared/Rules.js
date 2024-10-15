@@ -7,6 +7,7 @@ import hand from '../../assets/images/hand.png';
 import { Block } from './Block';
 import { Button } from './Button';
 import { initialPuzzles } from '../screens/Game1/initialPuzzles';
+import { reachMetrikaGoal } from '../../utils/reachMetrikaGoal';
 
 const Wrapper = styled(motion.div)`
     display: flex;
@@ -74,6 +75,7 @@ export const Rules = ({onClose, isFirstRules}) => {
     const ratio = useSizeRatio();
    
     const handleClose = () => {
+        if (isFirstRules) reachMetrikaGoal('rules');
         onClose();
     }
 
