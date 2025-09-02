@@ -1,6 +1,9 @@
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {SizeRatioContextProvider} from '../contexts/SizeRatioContext';
+import { Block } from './shared/Block';
+import header from '../assets/images/blockHeaderCookie.svg';
+import { Button } from './shared/Button';
 
 const TARGET_WIDTH = 375;
 const TARGET_HEIGHT = 677;
@@ -42,10 +45,67 @@ const Content = styled.div`
     }
 `;
 
+const CookieWrapper = styled.div`
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: ${({$ratio}) => $ratio * 315}px;
+    bottom: ${({$ratio}) => $ratio * 30}px;
+    z-index: 1230;
+
+    & > div > div:last-child {
+        background: rgba(163, 156, 255, 1);
+        padding: ${({$ratio}) => $ratio * 20}px;
+        align-items: flex-start;
+        height: ${({$ratio}) => $ratio * 90}px;
+        border-top-color: rgba(163, 156, 255, 1);
+    }
+
+    & > div > div:first-child {
+        background-image: url(${header});
+    }
+
+    & a {
+        font-weight: 500;
+        color: white;
+        text-align: left;
+        font-size: ${({$ratio}) => $ratio * 10}px;
+        max-width: ${({$ratio}) => $ratio * 137}px;
+    
+        &:active {
+            color: white;
+        }
+    }
+
+    & button {
+        position: absolute;
+        bottom: ${({$ratio}) => $ratio * 20}px;
+        right: ${({$ratio}) => $ratio * 20}px;
+        z-index: 3;
+        width: ${({$ratio}) => $ratio * 120}px;
+        height: ${({$ratio}) => $ratio * 50}px;
+        padding: 0;
+    }
+`;
+
 export function ScreenTemplate(props) {
+    const [isCookies, setIsCookies] = useState(false);
+
     const { children } = props;
     const wrapperRef = useRef();
     const wrapperInnerRef = useRef();
+
+    useEffect(() => {
+        const isAgreedCookies = localStorage.getItem('kept_cookies_agreed');
+        if (isAgreedCookies) return;
+
+        setIsCookies(!isAgreedCookies);
+    }, []);
+
+    const handleClick = () => {
+        localStorage.setItem('kept_cookies_agreed', true);
+        setIsCookies(false);
+    };
 
     return (
         <SizeRatioContextProvider target={wrapperInnerRef} targetWidth={TARGET_WIDTH} targetHeight={TARGET_HEIGHT}>
@@ -54,6 +114,20 @@ export function ScreenTemplate(props) {
                     <WrapperInner ref={wrapperInnerRef}>
                         <Content $sizeRatio={sizeRatio}>
                             {children}
+                            {
+                                isCookies && (
+                                     <CookieWrapper $ratio={sizeRatio}>
+                                        <Block>
+                                            <a href="https://fut.ru/cookie" target="_blank" rel="noreferrer">
+                                                Мы используем куки. Играя, ты соглашаешься с этим
+                                            </a>
+                                        </Block>
+                                        <Button type='secondary' onClick={handleClick}>
+                                            окей
+                                        </Button>
+                                    </CookieWrapper>
+                                )
+                            }
                         </Content>
                     </WrapperInner>
                 </Wrapper>

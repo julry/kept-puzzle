@@ -6,8 +6,10 @@ import { reachMetrikaGoal } from "../../utils/reachMetrikaGoal";
 import { Block } from "../shared/Block";
 import { Button } from "../shared/Button";
 import { FlexWrapper } from "../shared/FlexWrapper";
+import bg from "../../assets/images/bgFinal.svg";
 
 const Wrapper = styled(FlexWrapper)`
+    background: url(${bg}) no-repeat 0 0 / cover;
     justify-content: center;
 `;
 
@@ -22,7 +24,13 @@ const BlockStyled = styled(Block)`
     padding-top: ${({$ratio}) => $ratio * 25}px;
 
     & p {
-        font-size: ${({$ratio}) => $ratio * 14}px;
+        font-size: ${({$ratio}) => $ratio * 12}px;
+    }
+
+    @media screen and (min-height: 800px) and (max-width: 450px){
+        & p {
+            font-size: ${({$ratio}) => $ratio * 14}px;
+        }
     }
 `;
 
@@ -76,10 +84,16 @@ const RadioButtonLabel = styled.label`
     background-color: #A39CFF;
     border-radius: 50%;
   }
+
+  & + & {
+    margin-top: ${({$ratio}) => $ratio * 10}px;
+  }
 `;
 
 const Link = styled.a`
-  color: inherit;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 0.5px solid #531a56;
 `;
 
 const ButtonStyled = styled(Button)`
@@ -94,6 +108,7 @@ export const PreFinal = () => {
     const {next, registrateEmail} = useProgress();
     const [email, setEmail] = useState(''); 
     const [isAgreed, setIsAgreed] = useState(false);
+    const [isAdsAgreed, setIsAdsAgreed] = useState(false);
     const [isCorrect, setIsCorrect] = useState(true);
     const [isSending, setIsSending] = useState(false);
     const emailRegExp = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/gi;
@@ -117,7 +132,7 @@ export const PreFinal = () => {
     const handleClick = async () => {
         if (isSending) return;
         setIsSending(true);
-        await registrateEmail({email});
+        await registrateEmail({email, isAdsAgreed});
         reachMetrikaGoal('mail');
         setIsSending(false);
         next();
@@ -133,7 +148,7 @@ export const PreFinal = () => {
                     Теперь ты знаешь, как важно, чтобы все детальки были на своем месте. Так и в Kept:{' '}
                     каждое действие и сотрудник важны для получения крутого результата. Поэтому компания старается{' '}
                     создать комфортные условия для развития каждого человека.{'\n\n'}
-                    <b>Участвуй в розыгрыше от Kept и получи шанс выиграть карьерную консультацию, фаст-трек на образовательные программы или мерч.</b>{'\n'}
+                    <b>Участвуй в розыгрыше от Kept и получи шанс выиграть крутые призы.</b>{' '}
                     Введи свой email — если победишь, мы с тобой свяжемся:
                 </p>
                 <InputStyled 
@@ -155,18 +170,28 @@ export const PreFinal = () => {
                     />
                     <RadioIconStyled $ratio={ratio}/>
                     <span>
-                        Я согласен(а) на{"\u00A0"}
-                        <Link
-                            href={"https://doc.fut.ru/personal_data_policy.pdf"}
-                            target="_blank"
-                        >
-                        обработку персональных данных
-                        </Link>
-                        {" "}и получение информационных сообщений, а также с{' '}
-                        <Link
-                            href={"https://kept-braingame.fut.ru/agreement.pdf"}
-                            target="_blank"
-                        >правилами проведения акции</Link>.
+                        Я даю согласие на{"\u00A0"}
+                        <Link href="https://fut.ru/personal_data_agreement" target="_blank">обработку</Link>{' '}
+                        и{"\u00A0"}<Link href="https://fut.ru/personal_data_transfer_agreement" target="_blank">передачу</Link>{' '} 
+                        моих персональных данных и соглашаюсь с условиями{"\u00A0"}
+                        <Link href="https://fut.ru/user-agreement" target="_blank">Пользовательского соглашения</Link>,{' '}
+                        <Link href="https://fut.ru/personal-data" target="_blank">Политикой обработки персональных данных</Link>,{' '} 
+                        а также с{"\u00A0"}<Link href="https://kept-braingame.fut.ru/agreement.pdf" target="_blank">правилами проведения акции</Link>.
+                    </span>
+                </RadioButtonLabel>
+                <RadioButtonLabel $ratio={ratio}>
+                    <InputRadioButton
+                        $ratio={ratio}
+                        type="checkbox"
+                        disabled={isSending}
+                        value={isAdsAgreed}
+                        checked={isAdsAgreed}
+                        onChange={() => setIsAdsAgreed((prevAgreed) => !prevAgreed)}
+                    />
+                    <RadioIconStyled $ratio={ratio}/>
+                    <span>
+                        Хочу ловить персональные стажировки от топ-компаний в{"\u00A0"} 
+                        <Link href="https://fut.ru/adv_messages_agreement" target="_blank">рекламной рассылке</Link>
                     </span>
                 </RadioButtonLabel>
                 <ButtonStyled 

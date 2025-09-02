@@ -22,12 +22,12 @@ export function ProgressProvider(props) {
         );
     }, []);
 
-    const registrateEmail = async ({email}) => {
+    const registrateEmail = async ({email, isAdsAgreed}) => {
        try {
             const emailUser = await client?.current.findRecord('email', email);
             if (emailUser) return;
 
-            const record = await client?.current.createRecord({email});
+            const record = await client?.current.createRecord({email, isAdsAgreed});
             return record; 
        } catch (e) {
             return {isError: true}
