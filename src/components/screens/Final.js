@@ -31,7 +31,7 @@ export const Final = () => {
 
     const handleOpenLink = () => {
         reachMetrikaGoal('telegram');
-        window.open('https://t.me/keptcareer', '_blank');
+        window.open('https://fut.ru/internship/kept/kept-consulting?utm_source=fut&utm_medium=specialproject', '_blank');
     }
 
     return (

@@ -176,7 +176,7 @@ export const PreFinal = () => {
                         моих персональных данных и соглашаюсь с условиями{"\u00A0"}
                         <Link href="https://fut.ru/user-agreement" target="_blank">Пользовательского соглашения</Link>,{' '}
                         <Link href="https://fut.ru/personal-data" target="_blank">Политикой обработки персональных данных</Link>,{' '} 
-                        а также с{"\u00A0"}<Link href="https://kept-braingame.fut.ru/agreement.pdf" target="_blank">правилами проведения акции</Link>.
+                        а также с{"\u00A0"}<Link href="https://kept-braingame.fut.ru/agreement.pdf" target="_blank">правилами проведения акции</Link>
                     </span>
                 </RadioButtonLabel>
                 <RadioButtonLabel $ratio={ratio}>
