@@ -13,17 +13,23 @@ const Wrapper = styled(FlexWrapper)`
 `;
 
 const BlockStyled = styled(Block)`
-    font-size: ${({$ratio}) => $ratio * 18}px;
+    font-size: ${({$ratio}) => $ratio * 14}px;
     margin-bottom: ${({$ratio}) => $ratio * 30}px;
 `;
 
 const ImageStyled = styled.img`
     width: ${({$ratio}) => $ratio * 340}px;
-    height: ${({$ratio}) => $ratio * 366}px;
+    height: ${({$ratio}) => $ratio * 202}px;
+    object-fit: cover;
+    object-position: 50% 0%;
 `;
 
 const ButtonStyled = styled(Button)`
     width: ${({$ratio}) => $ratio * 315}px;
+`;
+const Title = styled.h3`
+    font-size: ${({$ratio}) => $ratio * 18}px;
+    margin-bottom: ${({$ratio}) => $ratio * 13}px;
 `;
 
 export const Final = () => {
@@ -31,13 +37,19 @@ export const Final = () => {
 
     const handleOpenLink = () => {
         reachMetrikaGoal('telegram');
-        window.open('https://fut.ru/internship/kept/kept-consulting?utm_source=fut&utm_medium=specialproject', '_blank');
+        window.open('https://t.me/+yAZNWpsDYTMyNWYy', '_blank');
     }
 
     return (
         <Wrapper $ratio={ratio} $bg={bg}>
             <ImageStyled $ratio={ratio} src={pic} alt="" />
             <BlockStyled $ratio={ratio}>
+                <Title $ratio={ratio}>
+                    Ура, цель достигнута —{'\n'}все картинки собраны!
+                </Title>
+                Теперь ты знаешь, как важно, чтобы все детальки были на своем месте. Так и в Kept:{' '}
+                каждое действие и сотрудник важны для получения крутого результата. Поэтому компания старается{' '}
+                создать комфортные условия для развития каждого человека.{'\n\n'}
                 Если ты тоже хочешь достичь новых вершин и узнать больше о карьерных возможностях в Kept,{' '}
                 заглядывай в наш телеграм-канал!
             </BlockStyled>

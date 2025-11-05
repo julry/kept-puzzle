@@ -1,33 +1,33 @@
 {
   "files": {
     "main.css": "./static/css/main.610d7ed7.css",
-    "main.js": "./static/js/main.94d4724d.js",
+    "main.js": "./static/js/main.2932c43c.js",
     "static/media/Montserrat-Bold.ttf": "./static/media/Montserrat-Bold.50f0257aa1e905f4bfaf.ttf",
     "static/media/Manrope-Medium.ttf": "./static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
     "static/media/Manrope-Regular.ttf": "./static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
     "static/media/Manrope-Bold.ttf": "./static/media/Manrope-Bold.47f6d7143da9d8c0e480.ttf",
-    "static/media/finalImg.png": "./static/media/finalImg.42e7004258b953814a0e.png",
     "static/media/postLvl1.png": "./static/media/postLvl1.80db001143fb3a9f9193.png",
+    "static/media/finalImg.png": "./static/media/finalImg.a06f1f35ce604d5bf2d4.png",
     "static/media/intro-bg.svg": "./static/media/intro-bg.9f57646cb1e5d625da85dc668881985d.svg",
     "static/media/postLvl3.png": "./static/media/postLvl3.bc3bdf09058b36315dce.png",
     "static/media/postLvl2.png": "./static/media/postLvl2.0ba9092e039f7ea6910c.png",
     "static/media/boardPic.png": "./static/media/boardPic.4fd39b78a150577a2e8a.png",
     "static/media/blockHeaderRules.svg": "./static/media/blockHeaderRules.4d367ab9861b055ffa051c9e9a1f98f1.svg",
     "static/media/logo.svg": "./static/media/logo.39eae93f47070ed42e5212329d4b06bc.svg",
-    "static/media/bgFinal.svg": "./static/media/bgFinal.9c138ced0fe731bb49597c7c564c76f6.svg",
+    "static/media/bgFinal.svg": "./static/media/bgFinal.aca5caa488c5922b8ca42043fa4ed985.svg",
+    "index.html": "./index.html",
     "static/media/bgPostLvl1.svg": "./static/media/bgPostLvl1.f75fa18407577c1838ee23aa4700e631.svg",
     "static/media/bgPostLvl2.svg": "./static/media/bgPostLvl2.60dcbba47101a3eb1ad361fa7c147bd1.svg",
     "static/media/bgPostLvl3.svg": "./static/media/bgPostLvl3.f03bc0cc5ed07e1e0c7d48afe4f55401.svg",
     "static/media/blockHeader.svg": "./static/media/blockHeader.182d16d7be3ba3ccad41d27709f72399.svg",
     "static/media/blockHeaderCookie.svg": "./static/media/blockHeaderCookie.ecfeb20c7ce57fdf41a53dedae59ce93.svg",
-    "index.html": "./index.html",
     "static/media/leg_left.svg": "./static/media/leg_left.85cce0e4931fd69e7ef1e37da249c583.svg",
     "static/media/leg_right.svg": "./static/media/leg_right.ba963130c30042ad6e25ef8a77f05174.svg",
     "main.610d7ed7.css.map": "./static/css/main.610d7ed7.css.map",
-    "main.94d4724d.js.map": "./static/js/main.94d4724d.js.map"
+    "main.2932c43c.js.map": "./static/js/main.2932c43c.js.map"
   },
   "entrypoints": [
     "static/css/main.610d7ed7.css",
-    "static/js/main.94d4724d.js"
+    "static/js/main.2932c43c.js"
   ]
 }

@@ -6,7 +6,7 @@ import { PostGame2 } from '../components/screens/PostGame2';
 import { Game3 } from '../components/screens/Game3';
 import { PostGame3 } from '../components/screens/PostGame3';
 import { Final } from '../components/screens/Final';
-import { PreFinal } from '../components/screens/PreFinal';
+// import { PreFinal } from '../components/screens/PreFinal';
 
 import * as picGame3 from '../components/screens/Game3/assets';
 import * as picGame2 from "../components/screens/Game2/assets";
@@ -52,10 +52,10 @@ export const screens = [
         id: 6,
         component: PostGame3
     },
-    {
-        id: 7,
-        component: PreFinal
-    },
+    // {
+    //     id: 7,
+    //     component: PreFinal
+    // },
     {
         id: 8,
         component: Final
