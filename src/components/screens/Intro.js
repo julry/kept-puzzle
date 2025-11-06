@@ -55,7 +55,7 @@ export const Intro = () => {
             <Logo src={logo} alt="" $ratio={ratio}/>
             <BlockStyled  $ratio={ratio}>
                 <p>
-                    Реши головоломки{'\n'}от компании Kept, узнай, в чем секрет достижения крутых результатов на работе, и выиграй призы!
+                    Реши головоломки{'\n'}от компании Kept, узнай, в чем секрет достижения крутых результатов на работе
                 </p>
             </BlockStyled>
             <ButtonStyled onClick={handleNext}>далее</ButtonStyled>
